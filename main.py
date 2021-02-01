@@ -1,11 +1,23 @@
+from encrypt import *
+
 what=input("main or encrypt? ")
 
 if what=="main":
 	coords = []
+	xPos = 0
+	yPos = 0
+	xIncrease = 1
+	yIncrease = 1
+	t = 0
+	v = 0
 	x = int(input("x? "))
 	y = int(input("y? "))
 
+	lista = []
 	text = input("Krypterad text: ")
+
+	for i in range(len(text)):
+		lista.append(0)
 
 	for i in range(x):
 			coords.append([])
@@ -13,11 +25,6 @@ if what=="main":
 					coords[i].append('*')
 			#print(coords[x])
 
-	xPos = 0
-	yPos = 0
-	xIncrease = 1
-	yIncrease = 1
-	t=0
 
 	for p in range(len(text)):
 		if coords[xPos][yPos] == '*':
@@ -46,7 +53,10 @@ if what=="main":
 						code.append(coords[q][r])
 	print(code)
 	for w in code:
-		realcode+=text[w]
+		lista[w] = text[v]
+		v += 1
+	for g in range(len(lista)):
+		realcode+=lista[g]
 	print(realcode)
 else:
 	encrypt()
